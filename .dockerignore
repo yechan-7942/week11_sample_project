@@ -1,0 +1,15 @@
+.git
+.gradle
+.idea
+.codex
+.agents
+.env
+.env.*
+**/.env
+**/.env.*
+build
+uploads
+upload-files
+*.iml
+*.log
+.DS_Store
