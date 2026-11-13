@@ -1,1 +1,44 @@
-<!DOCTYPE html><html lang="ko" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>자료 공유 게시판</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link th:href="@{/css/app.css}" rel="stylesheet"></head><body><main class="container py-5"><div class="d-flex justify-content-between align-items-center mb-4"><div><div class="eyebrow">WEEK 11 · SPRING BOOT</div><h1>자료 공유 게시판</h1></div><a class="btn btn-primary" th:href="@{/posts/new}">+ 게시글 작성</a></div><div class="card shadow-sm"><div class="card-body p-0"><table class="table table-hover mb-0 align-middle"><thead><tr><th class="ps-4">번호</th><th>제목</th><th>첨부</th><th>작성일</th></tr></thead><tbody><tr th:each="p : ${posts}"><td class="ps-4" th:text="${p.id}">1</td><td><a th:href="@{/posts/{id}(id=${p.id})}" th:text="${p.title}">제목</a></td><td th:text="${#lists.size(p.attachments)} + '개'">0개</td><td th:text="${#temporals.format(p.createdAt,'yyyy-MM-dd HH:mm')}">날짜</td></tr><tr th:if="${#lists.isEmpty(posts)}"><td colspan="4" class="text-center text-secondary p-5">첫 게시글을 작성해 보세요.</td></tr></tbody></table></div></div></main></body></html>
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>자료 공유 게시판</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/app.css}" rel="stylesheet">
+</head>
+<body>
+<main class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <div class="eyebrow">WEEK 11 · SPRING BOOT</div>
+            <h1>황예찬의 자료 공유 게시판</h1></div>
+        <a class="btn btn-primary" th:href="@{/posts/new}">+ 게시글 작성</a></div>
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <table class="table table-hover mb-0 align-middle">
+                <thead>
+                <tr>
+                    <th class="ps-4">번호</th>
+                    <th>제목</th>
+                    <th>첨부</th>
+                    <th>작성일</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="p : ${posts}">
+                    <td class="ps-4" th:text="${p.id}">1</td>
+                    <td><a th:href="@{/posts/{id}(id=${p.id})}" th:text="${p.title}">제목</a></td>
+                    <td th:text="${#lists.size(p.attachments)} + '개'">0개</td>
+                    <td th:text="${#temporals.format(p.createdAt,'yyyy-MM-dd HH:mm')}">날짜</td>
+                </tr>
+                <tr th:if="${#lists.isEmpty(posts)}">
+                    <td colspan="4" class="text-center text-secondary p-5">첫 게시글을 작성해 보세요.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+</body>
+</html>

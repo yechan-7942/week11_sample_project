@@ -1,8 +1,53 @@
-body { background:#f5f7fb; color:#1b2841; }
-a { text-decoration:none; }
-h1 { font-size:2rem; font-weight:750; letter-spacing:-0.04em; }
-.eyebrow { color:#64748b; font-size:.75rem; font-weight:700; letter-spacing:.1em; margin-bottom:.7rem; }
-.card { border:0; border-radius:16px; }
-.post-content { margin-top:1.5rem; white-space:pre-wrap; min-height:90px; line-height:1.8; }
-.table th { color:#64748b; font-size:.83rem; background:#f8fafc; }
-.table td, .table th { padding-top:1rem; padding-bottom:1rem; }
+body {
+    background: #f5f7fb;
+    color: #1b2841;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 750;
+    letter-spacing: -0.04em;
+}
+
+.eyebrow {
+    color: #64748b;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    margin-bottom: .7rem;
+}
+
+.card {
+    border: 0;
+    border-radius: 16px;
+}
+
+.post-content {
+    margin-top: 1.5rem;
+    white-space: pre-wrap;
+    min-height: 90px;
+    line-height: 1.8;
+}
+
+.table th {
+    color: #64748b;
+    font-size: .83rem;
+    background: #f8fafc;
+}
+
+.table td, .table th {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.btn-primary{
+    background:  red;
+}
+
+.attachment-info {
+    min-width: 0;
+}
