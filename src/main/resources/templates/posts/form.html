@@ -14,7 +14,7 @@
           th:action="${postId == null ? '/posts' : '/posts/' + postId + '/edit'}" method="post"
           enctype="multipart/form-data"><label class="form-label mt-2">제목</label><input class="form-control"
                                                                                         th:field="*{title}"
-                                                                                        maxlength="120" required햣
+                                                                                        maxlength="120" required>
         <div class="text-danger" th:errors="*{title}"></div>
         <label class="form-label mt-3">내용</label><textarea class="form-control" rows="6" th:field="*{content}"
                                                            required></textarea>

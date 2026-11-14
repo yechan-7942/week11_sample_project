@@ -38,5 +38,24 @@ public class AttachmentController {
             .header(HttpHeaders.CONTENT_DISPOSITION, disposition)
             .body(resource);
     }
-    // STUDENT TODO: GET /attachments/{id}/view (image preview).
+
+
+    //이미지 미리보기(Image Preview) 기능을 구현하기!
+    @GetMapping("/{id}/view")
+    public ResponseEntity<Resource> view(@PathVariable Long id) {
+        Attachment file = attachments.findById(id).orElseThrow(() ->
+            new ResponseStatusException(HttpStatus.NOT_FOUND, "첨부파일이 없습니다."));
+
+        Resource resource = storage.load(file);
+        String contentType = file.getContentType();
+
+        if (!"image/jpeg".equals(contentType) && !"image/png".equals(contentType)
+                && !"image/gif".equals(contentType)) {
+            throw new ResponseStatusException(HttpStatus.UNSUPPORTED_MEDIA_TYPE, "이미지 파일만 미리볼 수 있습니다.");
+        }
+
+        return ResponseEntity.ok()
+            .contentType(MediaType.parseMediaType(contentType))
+            .body(resource);
+    }
 }
